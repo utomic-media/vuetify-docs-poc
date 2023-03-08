@@ -28,6 +28,8 @@
         :to="menuItem.to"
         variant="text"
         color="grey-darken-4"
+        class="text-capitalize"
+        :class="(index !== 0) ? 'ml-2' : ''"
       >
         {{ menuItem.text }}
       </v-btn>
@@ -37,6 +39,7 @@
 
     <template #append>
       <!-- TODO: remove hover background -->
+      <!-- TODO: if page !== home: display search input -->
       <v-btn icon="mdi-magnify" color="grey-darken-4" variant="text" />
       <v-btn icon="mdi-github" color="grey-darken-4" variant="text" />
       <v-btn
@@ -65,6 +68,7 @@ const props = defineProps({
 const mainMenu = ref([
   { text: 'Docs', to: '/docs' },
   { text: 'Components', to: '/components' },
+  { text: 'Templates', to: '/templates' },
   { text: 'Support', to: '/support' },
 ]);
 
