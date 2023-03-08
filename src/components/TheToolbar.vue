@@ -26,6 +26,8 @@
         v-for="(menuItem, index) in mainMenu"
         :key="index"
         :to="menuItem.to"
+        :href="menuItem.href"
+        :target="menuItem.target"
         variant="text"
         color="grey-darken-4"
         class="text-capitalize"
@@ -74,6 +76,7 @@ const mainMenu = ref([
   // { text: 'Components', to: '/components' },
   { text: 'Templates', to: '/templates' },
   { text: 'Support', to: '/support' },
+  { text: 'Playground', href: 'https://play.vuetifyjs.com/', target: '_blank' }
 ]);
 
 </script>

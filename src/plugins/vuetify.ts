@@ -29,6 +29,9 @@ export default createVuetify({
   defaults: {
     VBtn: {
       rounded: 'rounded-xl',
-    }
+    },
+    VChip: {
+      rounded: 'rounded-pill'
+    },
   }
 })
