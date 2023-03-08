@@ -4,7 +4,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routes = [
   {
     path: '/',
-    component: () => import('@/layouts/default/Default.vue'),
+    component: () => import('@/layouts/Home.vue'),
     children: [
       {
         path: '',
@@ -14,6 +14,22 @@ const routes = [
         // which is lazy-loaded when the route is visited.
         component: () => import(/* webpackChunkName: "home" */ '@/views/Home.vue'),
       },
+      {
+        path: '/docs',
+        name: 'Docs',
+        component: () => import(/* webpackChunkName: "docs" */ '@/views/Docs.vue'),
+      }
+    ],
+  },
+  {
+    path: '/',
+    component: () => import('@/layouts/default/Default.vue'),
+    children: [
+      {
+        path: '/docs',
+        name: 'Docs',
+        component: () => import(/* webpackChunkName: "docs" */ '@/views/Docs.vue'),
+      }
     ],
   },
 ]
