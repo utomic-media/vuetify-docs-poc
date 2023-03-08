@@ -22,14 +22,15 @@ const routes = [
     children: [
       {
         path: '/docs',
-        // alias: ['introduction', 'getting-started', 'features', 'styles'],
+        alias: ['introduction', 'getting-started', 'features', 'styles', 'components', 'directives'],
         name: 'Docs',
-        component: () => import(/* webpackChunkName: "docs" */ '@/views/Docs.vue'),
+        redirect: to => { return '/getting-started/installation' },
         children: [
           {
-            path: '/getting-started/installation',
+            path: '/getting-started',
             name: 'Getting Started',
             component: () => import(/* webpackChunkName: "docs" */ '@/views/Docs.vue'),
+            redirect: to => { return '/getting-started/installation' },
             children: [
               {
                 path: '/introduction/why-vuetify/',
@@ -90,9 +91,10 @@ const routes = [
             ],
           },
           {
-            path: '/features/aliasing',
+            path: '/features',
             name: 'Features',
             component: () => import(/* webpackChunkName: "docs" */ '@/views/Docs.vue'),
+            redirect: to => { return '/features/aliasing' },
             children: [
               {
                 path: '/features/aliasing',
@@ -112,11 +114,125 @@ const routes = [
               },
             ],
           },
+          {
+            path: '/components',
+            name: 'Components',
+            component: () => import(/* webpackChunkName: "component" */ '@/views/Component.vue'),
+            redirect: to => { return '/components/all' },
+            children: [
+              {
+                path: '/components/all',
+                name: 'All components',
+                component: () => import(/* webpackChunkName: "component" */ '@/views/Component.vue'),
+              },
+              {
+                path: '/components/alerts/:tab?',
+                name: 'Alerts',
+                component: () => import(/* webpackChunkName: "component" */ '@/views/Component.vue'),
+              },
+              {
+                path: '/components/aspect-ratios/:tab?',
+                name: 'Aspect Ratios',
+                component: () => import(/* webpackChunkName: "component" */ '@/views/Component.vue'),
+              },
+              {
+                path: '/components/avatars/:tab?',
+                name: 'Avatars',
+                component: () => import(/* webpackChunkName: "component" */ '@/views/Component.vue'),
+              },
+              {
+                path: '/components/badges/:tab?',
+                name: 'Badges',
+                component: () => import(/* webpackChunkName: "component" */ '@/views/Component.vue'),
+              },
+              {
+                path: '/components/banners/:tab?',
+                name: 'Banners',
+                component: () => import(/* webpackChunkName: "component" */ '@/views/Component.vue'),
+              },
+              {
+                path: '/components/breadcrumbs/:tab?',
+                name: 'Breadcrumbs',
+                component: () => import(/* webpackChunkName: "component" */ '@/views/Component.vue'),
+              },
+              {
+                path: '/components/buttons/:tab?',
+                name: 'Buttons',
+                component: () => import(/* webpackChunkName: "component" */ '@/views/Component.vue'),
+              },
+              {
+                path: '/components/cards/:tab?',
+                name: 'Cards',
+                component: () => import(/* webpackChunkName: "component" */ '@/views/Component.vue'),
+              },
+              {
+                path: '/components/carousels/:tab?',
+                name: 'Carousels',
+                component: () => import(/* webpackChunkName: "component" */ '@/views/Component.vue'),
+              },
+              {
+                path: '/components/chips/:tab?',
+                name: 'Chips',
+                component: () => import(/* webpackChunkName: "component" */ '@/views/Component.vue'),
+              },
+              {
+                path: '/components/color-pickers/:tab?',
+                name: 'Color pickers',
+                component: () => import(/* webpackChunkName: "component" */ '@/views/Component.vue'),
+              },
+              {
+                path: '/components/dividers/:tab?',
+                name: 'Dividers',
+                component: () => import(/* webpackChunkName: "component" */ '@/views/Component.vue'),
+              },
+              {
+                path: '/components/expansion-panels/:tab?',
+                name: 'Expansion panels',
+                component: () => import(/* webpackChunkName: "component" */ '@/views/Component.vue'),
+              },
+            ],
+          },
+          {
+            path: '/styles',
+            name: 'Styles & animations',
+            component: () => import(/* webpackChunkName: "docs" */ '@/views/Docs.vue'),
+            redirect: to => { return '/directives/click-outside/' },
+            children: [
+              {
+                path: '/directives/click-outside/',
+                name: 'Click Outside',
+                component: () => import(/* webpackChunkName: "docs" */ '@/views/Docs.vue'),
+              },
+              {
+                path: '/directives/intersect',
+                name: 'Intersect',
+                component: () => import(/* webpackChunkName: "docs" */ '@/views/Docs.vue'),
+              }
+            ],
+          },
+          {
+            path: '/directives',
+            name: 'Directives',
+            component: () => import(/* webpackChunkName: "docs" */ '@/views/Docs.vue'),
+            redirect: to => { return '/directives/click-outside/' },
+            children: [
+              {
+                path: '/directives/click-outside/',
+                name: 'Click Outside',
+                component: () => import(/* webpackChunkName: "docs" */ '@/views/Docs.vue'),
+              },
+              {
+                path: '/directives/intersect',
+                name: 'Intersect',
+                component: () => import(/* webpackChunkName: "docs" */ '@/views/Docs.vue'),
+              }
+            ],
+          },
         ],
-      }
-    ],
+      },
+    ]
   },
-]
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),

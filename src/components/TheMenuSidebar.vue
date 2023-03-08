@@ -1,15 +1,16 @@
 <template>
   <div class="the-menu-sidebar">
-    <v-list>
+    <v-list density="compact" class="pa-2">
       <v-list-item
         v-for="(route, index) in childRoutes"
         :key="index"
         :value="index"
         active-color="primary"
-        :to="route.path"
+        :to="getPath(route.path)"
         :exact="true"
       >
-        <template #prepend>
+
+        <template #prepend v-if="route.meta?.icon">
           <v-icon :icon="route.meta?.icon" />
         </template>
 
@@ -38,6 +39,15 @@ const childRoutes = computed(() => {
   const lastMatchedRoute = route.matched[route.matched.length - 2]; // siblings-pages of the current page
   return lastMatchedRoute.children || [];
 });
+
+
+const getPath = (path: string) => {
+  if (path.endsWith(':tab?')) {
+    return path.slice(0, -6);
+  }
+  return path;
+}
+
 </script>
 
 

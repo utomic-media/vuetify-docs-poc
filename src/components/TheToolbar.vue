@@ -70,8 +70,8 @@ const props = defineProps({
 });
 
 const mainMenu = ref([
-  { text: 'Docs', to: '/getting-started/installation' },
-  { text: 'Components', to: '/components' },
+  { text: 'Docs', to: '/docs' },
+  // { text: 'Components', to: '/components' },
   { text: 'Templates', to: '/templates' },
   { text: 'Support', to: '/support' },
 ]);
