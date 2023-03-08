@@ -21,19 +21,23 @@
                     Light
                   </v-btn>
 
-                  <v-btn value="dark" prepend-icon="mdi-white-balance-sunny">
+                  <v-btn value="dark" prepend-icon="mdi-weather-night">
                     Dark
                   </v-btn>
 
-                  <v-btn value="system" prepend-icon="mdi-white-balance-sunny">
+                  <v-btn value="system" prepend-icon="mdi-cellphone-link">
                     System
-                  </v-btn>
-
-                  <v-btn value="mixed" prepend-icon="mdi-white-balance-sunny">
-                    Mixed
                   </v-btn>
                 </v-btn-toggle>
               </v-defaults-provider>
+          </div>
+
+          <div class="mt-6">
+            <div class="text-subtitle-1 font-weight-bold text-undefined mb-1 ps-1">
+              Mixed Theme
+            </div>
+            <div class="ps-1">A mixed theme // TODO: explain mixed </div>
+            <v-checkbox label="Mixed" class="theme-mixed-checkbox" density="compact" color="primary" />
           </div>
 
           <div class="mt-6">
@@ -149,6 +153,12 @@ const btnToggleDefaults = {
 
 .language-selection {
   :deep(.v-input__details) {
+    display: none;
+  }
+}
+
+:deep(.theme-mixed-checkbox) {
+  .v-input__details {
     display: none;
   }
 }
