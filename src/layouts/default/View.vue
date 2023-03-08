@@ -1,41 +1,44 @@
 <template>
-  <header>
-    <TheToolbar
-      :modelValue="settingsDrawer"
-      @update:modelValue="((newValue: boolean) => settingsDrawer = newValue)"
-    >
+  <TheToolbar
+    :modelValue="settingsDrawer"
+    @update:modelValue="((newValue: boolean) => settingsDrawer = newValue)"
+  >
 
-      <template #extension v-if="childRoutes">
-        <v-tabs
-          v-model="currentPage"
-          align-tabs="center"
-          class="subpage-tabs"
+    <template #extension v-if="childRoutes">
+      <v-tabs
+        v-model="currentPage"
+        align-tabs="center"
+        class="subpage-tabs"
+      >
+        <v-tab
+          v-for="(route, index) in childRoutes"
+          :key="index"
+          :value="index"
+          class="text-capitalize text-grey-darken-2"
+          selected-class="selected-subpage"
+          :to="route.path"
         >
-          <v-tab
-            v-for="(route, index) in childRoutes"
-            :key="index"
-            :value="index"
-            class="text-capitalize text-grey-darken-2"
-            selected-class="selected-subpage"
-            :to="route.path"
-          >
-            {{ route.name }}
-          </v-tab>
-        </v-tabs>
-      </template>
-    </TheToolbar>
+          {{ route.name }}
+        </v-tab>
+      </v-tabs>
+    </template>
+  </TheToolbar>
 
-    <TheSettingsSidebar
-      :modelValue="settingsDrawer"
-      @update:modelValue="((newValue: boolean) => settingsDrawer = newValue)"
-    />
-  </header>
+  <TheSettingsSidebar
+    :modelValue="settingsDrawer"
+    @update:modelValue="((newValue: boolean) => settingsDrawer = newValue)"
+  />
+
 
   <v-main>
     <div class="page-layout">
-      <TheMenuSidebar />
+      <div>
+        <TheMenuSidebar class="stick-to-menu" />
+      </div>
       <router-view />
-      <h2 class="text-subtitle-1 font-weight-bold">Table of Contents</h2>
+      <div>
+        <h2 class="text-subtitle-1 font-weight-bold stick-to-menu">Table of Contents</h2>
+      </div>
     </div>
   </v-main>
 </template>
@@ -81,5 +84,10 @@ const childRoutes = computed(() => {
     color: inherit !important;
     font-weight: bold;
   }
+}
+
+.stick-to-menu {
+  position: sticky;
+  top: 136px; // height of header
 }
 </style>

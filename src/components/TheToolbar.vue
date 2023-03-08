@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar color="white">
+  <v-toolbar color="white" class="toolbar">
     <template #prepend>
       <router-link to="/">
         <v-img
@@ -81,6 +81,13 @@ const mainMenu = ref([
 
 
 <style scoped lang="scss">
+
+.toolbar {
+  // TODO: shrink on scroll
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
 
 :deep(.version-selection) {
   --v-input-control-height: auto;

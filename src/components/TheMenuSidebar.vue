@@ -7,7 +7,7 @@
         :value="index"
         active-color="primary"
         :to="getPath(route.path)"
-        :exact="true"
+        :exact="getExact()"
       >
 
         <template #prepend v-if="route.meta?.icon">
@@ -46,6 +46,15 @@ const getPath = (path: string) => {
     return path.slice(0, -6);
   }
   return path;
+}
+
+
+const getExact = () => {
+  if (route.path.endsWith(':tab?')) {
+    return false;
+  }
+
+  return true;
 }
 
 </script>
