@@ -1,22 +1,24 @@
 <template>
   <v-toolbar color="white">
     <template #prepend>
+      <router-link to="/">
         <v-img
           src="https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-slim-text-light.svg"
           alt="Vuetify Logo"
           width="150"
           height="auto"
+          to="/"
         />
+      </router-link>
 
-        <!-- TODO: make way smaller -->
-        <v-select
-          class="version-selection ml-2"
-          model-value="v3.1.6"
-          :items="['v3.1.6', 'v2.6.0', 'v1.5.0']"
-          density="compact"
-          variant="outlined"
-          bg-color="grey-lighten-3"
-        />
+      <v-select
+        class="version-selection ml-3"
+        model-value="v3.1.6"
+        :items="['v3.1.6', 'v2.6.0', 'v1.5.0']"
+        density="compact"
+        variant="outlined"
+        bg-color="grey-lighten-3"
+      />
     </template>
 
     <div>
@@ -71,13 +73,35 @@ const mainMenu = ref([
 
 
 <style scoped lang="scss">
-.version-selection {
-  :deep(.v-input__details) {
+
+:deep(.version-selection) {
+  --v-input-control-height: auto;
+
+  .v-input__details {
     display: none;
   }
-
-  :deep(.v-field__outline) {
+  .v-field.v-field--appended {
+    --v-field-padding-end: 0px;
+  }
+  .v-field--appended {
+    padding-inline-end: 4px;
+  }
+  .v-field__outline {
     --v-field-border-width: 0px; // remove outline (alternative: variant = plain, but this has a weird alignment!)
+  }
+
+  .v-field__input {
+    --v-field-padding-start: 10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .v-field__append-inner {
+    padding-top: 4px;
+  }
+
+  .v-input--density-compact {
+    height: 32px;
   }
 }
 </style>
