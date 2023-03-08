@@ -49,6 +49,10 @@
         @click.stop="$emit('update:modelValue', !modelValue)"
       />
     </template>
+
+    <template #extension v-if="$slots['extension']">
+      <slot name="extension" />
+    </template>
   </v-toolbar>
 
 </template>
@@ -66,7 +70,7 @@ const props = defineProps({
 });
 
 const mainMenu = ref([
-  { text: 'Docs', to: '/docs' },
+  { text: 'Docs', to: '/getting-started/installation' },
   { text: 'Components', to: '/components' },
   { text: 'Templates', to: '/templates' },
   { text: 'Support', to: '/support' },
@@ -107,5 +111,10 @@ const mainMenu = ref([
   .v-input--density-compact {
     height: 32px;
   }
+}
+
+:deep(.v-toolbar__extension) {
+  justify-content: center;
+  margin-bottom: 1.5rem;
 }
 </style>

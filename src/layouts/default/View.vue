@@ -3,7 +3,27 @@
     <TheToolbar
       :modelValue="settingsDrawer"
       @update:modelValue="((newValue: boolean) => settingsDrawer = newValue)"
-    />
+    >
+
+      <template #extension v-if="childRoutes">
+        <v-tabs
+          v-model="currentPage"
+          align-tabs="center"
+          class="subpage-tabs"
+        >
+          <v-tab
+            v-for="(route, index) in childRoutes"
+            :key="index"
+            :value="index"
+            class="text-capitalize text-grey-darken-2"
+            selected-class="selected-subpage"
+            :to="route.path"
+          >
+            {{ route.name }}
+          </v-tab>
+        </v-tabs>
+      </template>
+    </TheToolbar>
 
     <TheSettingsSidebar
       :modelValue="settingsDrawer"
@@ -21,12 +41,20 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import TheToolbar from '@/components/TheToolbar.vue';
 import TheSettingsSidebar from '@/components/TheSettingsSidebar.vue';
 import TheMenuSidebar from '@/components/TheMenuSidebar.vue';
+import { useRoute } from 'vue-router';
 
+const route = useRoute();
 const settingsDrawer = ref(false);
+const currentPage = ref(null);
+
+const childRoutes = computed(() => {
+  const lastMatchedRoute = route.matched[1]; // the subpages of the main-page
+  return lastMatchedRoute.children || []
+});
 
 </script>
 
@@ -34,5 +62,24 @@ const settingsDrawer = ref(false);
 .page-layout {
   display: grid;
   grid-template-columns: 2fr 7.5fr 1.5fr;
+  gap: 2rem;
+}
+
+
+.subpage-tabs {
+  :deep(.v-btn) {
+    &:hover {
+      font-weight: bold;
+      color: inherit !important;
+      .v-btn__overlay {
+        background: none;
+      }
+    }
+    // color: inherit !important;
+  }
+  .selected-subpage {
+    color: inherit !important;
+    font-weight: bold;
+  }
 }
 </style>
