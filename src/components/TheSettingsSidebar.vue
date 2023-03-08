@@ -3,6 +3,7 @@
       v-model="isActive"
       location="right"
       width="350"
+      temporary
     >
       <v-container>
         <v-card-title>Settings</v-card-title>
