@@ -1,16 +1,15 @@
 <template>
   <v-app>
-    <header>
-      <TheToolbar
-        :modelValue="settingsDrawer"
-        @update:modelValue="((newValue: boolean) => settingsDrawer = newValue)"
-      />
+    <TheToolbar
+      :modelValue="settingsDrawer"
+      @update:modelValue="((newValue: boolean) => settingsDrawer = newValue)"
+    />
 
-      <TheSettingsSidebar
-        :modelValue="settingsDrawer"
-        @update:modelValue="((newValue: boolean) => settingsDrawer = newValue)"
-      />
-    </header>
+    <TheSettingsSidebar
+      :modelValue="settingsDrawer"
+      @update:modelValue="((newValue: boolean) => settingsDrawer = newValue)"
+    />
+
 
     <v-main>
       <router-view />

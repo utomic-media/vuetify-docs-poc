@@ -84,12 +84,16 @@ const mainMenu = ref([
 
 
 <style scoped lang="scss">
-
 .toolbar {
   // TODO: shrink on scroll
   position: sticky;
   top: 0;
   z-index: 99;
+  align-items: center;
+
+  :deep(.v-toolbar__content) {
+    @include max-width;
+  }
 }
 
 :deep(.version-selection) {
@@ -112,10 +116,16 @@ const mainMenu = ref([
     --v-field-padding-start: 10px;
     padding-top: 4px;
     padding-bottom: 4px;
+    font-size: 0.75rem;
   }
 
   .v-field__append-inner {
-    padding-top: 4px;
+    padding-top: 2px;
+
+    .v-icon {
+      margin-left: 0px !important;
+      font-size: calc(var(--v-icon-size-multiplier) * 1.25em)
+    }
   }
 
   .v-input--density-compact {
