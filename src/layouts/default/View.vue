@@ -37,16 +37,18 @@
       </div>
       <router-view />
       <div class="toc-sidebar">
-        <h2 class="text-subtitle-1 font-weight-bold stick-to-menu">Content</h2>
-        <ul>
-          <li>Headline 01</li>
-          <li>Headline 02</li>
-            <ul>
-              <li>Some sub-stuff</li>
-              <li>Some sub-stuff</li>
-            </ul>
-          <li>Headline 03</li>
-        </ul>
+        <div class="stick-to-menu">
+          <h2 class="text-subtitle-1 font-weight-bold ">Content</h2>
+          <ul>
+            <li>Headline 01</li>
+            <li>Headline 02</li>
+              <ul>
+                <li>Some sub-stuff</li>
+                <li>Some sub-stuff</li>
+              </ul>
+            <li>Headline 03</li>
+          </ul>
+        </div>
       </div>
     </div>
   </v-main>
@@ -77,6 +79,7 @@ const childRoutes = computed(() => {
   gap: 2rem;
   @include max-width-large;
   margin: auto;
+  padding-top: 0.5rem;
 }
 
 
@@ -99,7 +102,7 @@ const childRoutes = computed(() => {
 
 .stick-to-menu {
   position: sticky;
-  top: 136px; // height of header
+  top: 112px; // height of header
 }
 
 .toc-sidebar {

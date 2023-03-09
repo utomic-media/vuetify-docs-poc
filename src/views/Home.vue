@@ -1,6 +1,6 @@
 <template>
   <div class="welcome-hero text-white">
-    <v-img src="@/assets/Vuetify-Header.jpg">
+    <v-img src="@/assets/Vuetify-Header.jpg" :cover="true">
       <div class="hero-wrapper mt-n6">
         <div class="hero-content">
           <v-chip class="font-weight-bold">For Vue.js 3</v-chip>
@@ -114,24 +114,26 @@ const cardIconDefaults = {
 
 <style scoped lang="scss">
 .welcome-hero {
-  :deep(.v-responsive__content) {
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    background: linear-gradient(54deg, rgba(0,0,0,0.3) 30%, rgba(0,112,255,0) 80%);
+  :deep(.v-responsive) {
+    max-height: 60vh;
+    .v-responsive__content{
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      align-items: center;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      background: linear-gradient(54deg, rgba(0,0,0,0.3) 30%, rgba(0,112,255,0) 80%);
 
-    .hero-wrapper {
-      width: 100%;
-      max-width: 900px;
-      @include max-width;
-      .hero-content {
-        max-width: 40%;
+      .hero-wrapper {
+        width: 100%;
+        max-width: 900px;
+        @include max-width;
+        .hero-content {
+          max-width: 40%;
+        }
       }
     }
-
   }
 }
 

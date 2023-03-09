@@ -109,6 +109,10 @@ const mainMenu = ref([
 
   :deep(.v-toolbar__content) {
     @include max-width-large;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.075);
+  }
+  :deep(.v-toolbar__extension) {
+    margin-bottom: 0;
   }
 }
 

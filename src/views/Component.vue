@@ -86,7 +86,7 @@ const pageTabs = computed(() => {
   background-color: #eff4fb; // rgba(var(--v-theme-primary), 0.075);
   // TODO: shrink on scroll
   position: sticky;
-  top: 136px; // height of header
+  top: 112px; // height of header
   z-index: 99;
 }
 
