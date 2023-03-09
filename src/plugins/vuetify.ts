@@ -33,5 +33,8 @@ export default createVuetify({
     VChip: {
       rounded: 'rounded-pill'
     },
+    VAlert: {
+      variant: 'tonal',
+    }
   }
 })

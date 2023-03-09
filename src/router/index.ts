@@ -22,7 +22,7 @@ const routes = [
     children: [
       {
         path: '/docs',
-        alias: ['introduction', 'getting-started', 'features', 'styles', 'components', 'directives'],
+        alias: ['introduction', 'getting-started', 'features', 'styles', 'components', 'directives', 'about'],
         name: 'Docs',
         redirect: to => { return '/getting-started/installation' },
         children: [
@@ -70,22 +70,6 @@ const routes = [
                 component: () => import(/* webpackChunkName: "docs" */ '@/views/Docs.vue'),
                 meta: {
                   icon: 'mdi-arrow-up',
-                },
-              },
-              {
-                path: '/getting-started/release-notes/',
-                name: 'Release Notes',
-                component: () => import(/* webpackChunkName: "docs" */ '@/views/Docs.vue'),
-                meta: {
-                  icon: 'mdi-note-edit-outline',
-                },
-              },
-              {
-                path: '/getting-started/contributing',
-                name: 'Contributing',
-                component: () => import(/* webpackChunkName: "docs" */ '@/views/Docs.vue'),
-                meta: {
-                  icon: 'mdi-git',
                 },
               },
             ],
@@ -228,10 +212,139 @@ const routes = [
               }
             ],
           },
+          {
+            path: '/community',
+            name: 'Community',
+            component: () => import(/* webpackChunkName: "docs" */ '@/views/Docs.vue'),
+            redirect: to => { return '/community-start' },
+            children: [
+              {
+                path: '/community-start',
+                name: 'Community',
+                component: () => import(/* webpackChunkName: "docs" */ '@/views/Docs.vue'),
+                meta: {
+                  icon: 'mdi-account-multiple-outline',
+                },
+              },
+              {
+                path: '/getting-started/release-notes/',
+                name: 'Release Notes',
+                component: () => import(/* webpackChunkName: "docs" */ '@/views/Docs.vue'),
+                meta: {
+                  icon: 'mdi-note-edit-outline',
+                },
+              },
+              {
+                path: '/getting-started/contributing',
+                name: 'Contributing',
+                component: () => import(/* webpackChunkName: "docs" */ '@/views/Docs.vue'),
+                meta: {
+                  icon: 'mdi-git',
+                },
+              },
+              {
+                path: '/introduction/long-term-support/',
+                name: 'Long-Term Support',
+                component: () => import(/* webpackChunkName: "docs" */ '@/views/Docs.vue'),
+                meta: {
+                  icon: 'mdi-timer-check-outline',
+                },
+              },
+              {
+                path: '/introduction/roadmap/',
+                name: 'Roadmap',
+                component: () => import(/* webpackChunkName: "docs" */ '@/views/Docs.vue'),
+                meta: {
+                  icon: 'mdi-sign-direction',
+                },
+              },
+              {
+                path: '/introduction/meet-the-team/',
+                name: 'The Team',
+                component: () => import(/* webpackChunkName: "docs" */ '@/views/Docs.vue'),
+                meta: {
+                  icon: 'mdi-account-multiple-outline',
+                },
+              },
+              {
+                path: '/about/code-of-conduct/',
+                name: 'Code of conduct',
+                component: () => import(/* webpackChunkName: "docs" */ '@/views/Docs.vue'),
+                meta: {
+                  icon: 'mdi-handshake-outline',
+                },
+              },
+
+            ],
+          },
         ],
       },
-    ]
+      {
+        path: '/support',
+        alias: ['ressources', 'introduction'],
+        name: 'Support',
+        redirect: to => { return '/support/solutions/' },
+        children: [
+          {
+            path: '/support/solutions/',
+            name: 'Solutions',
+            component: () => import(/* webpackChunkName: "docs" */ '@/views/Page.vue'),
+          },
+          {
+            path: '/introduction/enterprise-support/',
+            name: 'Enterprise Support',
+            component: () => import(/* webpackChunkName: "docs" */ '@/views/Page.vue'),
+            meta: {
+              icon: 'mdi-handshake-outline',
+            },
+          },
+          {
+            path: '/introduction/sponsors-and-backers/',
+            name: 'Sponsors',
+            component: () => import(/* webpackChunkName: "docs" */ '@/views/Page.vue'),
+            meta: {
+              icon: 'mdi-handshake-outline',
+            },
+          },
+          {
+            path: '/resources/jobs-for-vue/',
+            name: 'Jobs',
+            component: () => import(/* webpackChunkName: "docs" */ '@/views/Page.vue'),
+            meta: {
+              icon: 'mdi-handshake-outline',
+            },
+          },
+          {
+            path: '/about/security-disclosure/',
+            name: 'Security disclosure',
+            component: () => import(/* webpackChunkName: "docs" */ '@/views/Page.vue'),
+            meta: {
+              icon: 'mdi-shield-outline',
+            },
+          },
+        ],
+      }
+    ],
   },
+  // {
+  //   path: '/',
+  //   component: () => import('@/layouts/default/Default.vue'),
+  //   children: [
+  //     {
+  //       path: '/support',
+  //       // alias: ['introduction'],
+  //       name: 'Docs',
+  //       redirect: to => { return '/introduction/enterprise-support/' }, // TODO: create support overview page
+  //       children: [
+  //         {
+  //           path: '/introduction/long-term-support',
+  //           name: 'Long Term Support',
+  //           component: () => import(/* webpackChunkName: "docs" */ '@/views/Docs.vue'),
+  //         }
+  //       ]
+  //     },
+  //   ],
+  // },
 ];
 
 const router = createRouter({

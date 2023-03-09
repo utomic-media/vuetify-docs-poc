@@ -42,13 +42,18 @@
     <template #append>
       <!-- TODO: remove hover background -->
       <!-- TODO: if page !== home: display search input -->
-      <v-btn icon="mdi-magnify" color="grey-darken-4" variant="text" />
-      <v-btn icon="mdi-github" color="grey-darken-4" variant="text" />
+      <v-btn prepend-icon="mdi-magnify" variant="tonal" color="grey" class="text-capitalize">
+        Search (cmd + k)
+      </v-btn>
+      <!-- <v-btn icon="mdi-magnify" color="grey-darken-4" variant="text" size="small"/> -->
+      <v-btn icon="mdi-github" color="grey-darken-4" variant="text" size="small" />
+      <v-btn icon="mdi-bell-outline" color="grey-darken-4" variant="text" size="small" />
       <v-btn
         icon="mdi-cog-outline"
         color="grey-darken-4"
         variant="text"
         @click.stop="$emit('update:modelValue', !modelValue)"
+        size="small"
       />
     </template>
 
@@ -74,7 +79,7 @@ const props = defineProps({
 const mainMenu = ref([
   { text: 'Docs', to: '/docs' },
   // { text: 'Components', to: '/components' },
-  { text: 'Templates', to: '/templates' },
+  { text: 'Templates', href: 'https://store.vuetifyjs.com/?utm_source=vuetifyjs.com&utm_medium=toolbar', target: '_blank' },
   { text: 'Support', to: '/support' },
   { text: 'Playground', href: 'https://play.vuetifyjs.com/', target: '_blank' }
 ]);
