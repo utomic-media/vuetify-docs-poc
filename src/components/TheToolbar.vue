@@ -46,15 +46,26 @@
         Search (cmd + k)
       </v-btn>
       <!-- <v-btn icon="mdi-magnify" color="grey-darken-4" variant="text" size="small"/> -->
-      <v-btn icon="mdi-github" color="grey-darken-4" variant="text" size="small" />
-      <v-btn icon="mdi-bell-outline" color="grey-darken-4" variant="text" size="small" />
-      <v-btn
-        icon="mdi-cog-outline"
-        color="grey-darken-4"
-        variant="text"
-        @click.stop="$emit('update:modelValue', !modelValue)"
-        size="small"
-      />
+
+      <div class="icons-menu ml-2">
+        <!-- TODO: add discord icon -->
+        <v-btn
+          icon="mdi-github"
+          color="grey-darken-4"
+          variant="text"
+          size="small"
+          href="https://github.com/vuetifyjs/vuetify"
+          target="_blank"
+        />
+        <v-btn icon="mdi-bell-outline" color="grey-darken-4" variant="text" size="small" />
+        <v-btn
+          icon="mdi-cog-outline"
+          color="grey-darken-4"
+          variant="text"
+          @click.stop="$emit('update:modelValue', !modelValue)"
+          size="small"
+        />
+      </div>
     </template>
 
     <template #extension v-if="$slots['extension']">
@@ -98,6 +109,13 @@ const mainMenu = ref([
 
   :deep(.v-toolbar__content) {
     @include max-width-large;
+  }
+}
+
+.icons-menu {
+  :deep(.v-btn--density-default) {
+    width: calc(var(--v-btn-height) + 6px);
+    height: calc(var(--v-btn-height) + 6px);
   }
 }
 
