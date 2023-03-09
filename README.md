@@ -2,12 +2,14 @@
 >
 > 💡 A draft for alternative vuetify docs with a completely restructured and redesigned layout & navigation.
 > This is neither fully designed, nor responsive as it's just a poc.
+> It uses the same routing-structure as the original to not affect SEO and create broken links.
+> A lot of sites are moved to a new location to declutter the menu. It includes all sites (except the labs).
 >
 
 This project contains a re-work of the vuetifyjs docs showing structural reworks. With the re-structured navigation things will be easier to find and the menu + toolbar end up less cluttered.
 
 ## Changes
-The following 
+**The following points should be optimized in the docs and are already included in this poc, or should be added:**
 - Homepage: 
   - [ ] Add more information about the framework, show off some components and store products (starter templates)
   - [ ] Link to docs in Nav
