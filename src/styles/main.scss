@@ -1,0 +1,12 @@
+@mixin max-width {
+  @media screen and (min-width: 960px) {
+    max-width: 900px;
+  }
+  @media screen and (min-width: 1920px) {
+    max-width: 1200px;
+  }
+}
+
+.v-container {
+  @include max-width;
+}
