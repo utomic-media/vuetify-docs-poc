@@ -62,4 +62,15 @@ const getExact = () => {
 
 
 <style scoped lang="scss">
+
+.the-menu-sidebar {
+  :deep(.v-list) {
+    .v-list-item__prepend {
+      .v-icon {
+        margin-inline-end: 1rem;
+        font-size: 1.25rem;
+      }
+    }
+  }
+}
 </style>
