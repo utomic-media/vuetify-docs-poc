@@ -1,5 +1,5 @@
 // Composables
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, RouteLocationRaw } from 'vue-router'
 
 const routes = [
   {
@@ -24,13 +24,13 @@ const routes = [
         path: '/docs',
         alias: ['introduction', 'getting-started', 'features', 'styles', 'components', 'directives', 'about'],
         name: 'Docs',
-        redirect: to => { return '/getting-started/installation' },
+        redirect: (to: RouteLocationRaw) => { return '/getting-started/installation' },
         children: [
           {
             path: '/getting-started',
             name: 'Getting Started',
             component: () => import(/* webpackChunkName: "docs" */ '@/views/Docs.vue'),
-            redirect: to => { return '/getting-started/installation' },
+            redirect: (to: RouteLocationRaw) => { return '/getting-started/installation' },
             children: [
               {
                 path: '/introduction/why-vuetify/',
@@ -78,7 +78,7 @@ const routes = [
             path: '/features',
             name: 'Features',
             component: () => import(/* webpackChunkName: "docs" */ '@/views/Docs.vue'),
-            redirect: to => { return '/features/aliasing' },
+            redirect: (to: RouteLocationRaw) => { return '/features/aliasing' },
             children: [
               {
                 path: '/features/aliasing',
@@ -102,7 +102,7 @@ const routes = [
             path: '/components',
             name: 'Components',
             component: () => import(/* webpackChunkName: "component" */ '@/views/Component.vue'),
-            redirect: to => { return '/components/all' },
+            redirect: (to: RouteLocationRaw) => { return '/components/all' },
             children: [
               {
                 path: '/components/all',
@@ -180,7 +180,7 @@ const routes = [
             path: '/styles',
             name: 'Styles & animations',
             component: () => import(/* webpackChunkName: "docs" */ '@/views/Docs.vue'),
-            redirect: to => { return '/directives/click-outside/' },
+            redirect: (to: RouteLocationRaw) => { return '/directives/click-outside/' },
             children: [
               {
                 path: '/directives/click-outside/',
@@ -198,7 +198,7 @@ const routes = [
             path: '/directives',
             name: 'Directives',
             component: () => import(/* webpackChunkName: "docs" */ '@/views/Docs.vue'),
-            redirect: to => { return '/directives/click-outside/' },
+            redirect: (to: RouteLocationRaw) => { return '/directives/click-outside/' },
             children: [
               {
                 path: '/directives/click-outside/',
@@ -216,7 +216,7 @@ const routes = [
             path: '/community',
             name: 'Community',
             component: () => import(/* webpackChunkName: "docs" */ '@/views/Docs.vue'),
-            redirect: to => { return '/community-start' },
+            redirect: (to: RouteLocationRaw) => { return '/community-start' },
             children: [
               {
                 path: '/community-start',
@@ -283,7 +283,7 @@ const routes = [
         path: '/support',
         alias: ['ressources', 'introduction'],
         name: 'Support',
-        redirect: to => { return '/support/solutions/' },
+        redirect: (to: RouteLocationRaw) => { return '/support/solutions/' },
         children: [
           {
             path: '/support/solutions/',
@@ -326,25 +326,6 @@ const routes = [
       }
     ],
   },
-  // {
-  //   path: '/',
-  //   component: () => import('@/layouts/default/Default.vue'),
-  //   children: [
-  //     {
-  //       path: '/support',
-  //       // alias: ['introduction'],
-  //       name: 'Docs',
-  //       redirect: to => { return '/introduction/enterprise-support/' }, // TODO: create support overview page
-  //       children: [
-  //         {
-  //           path: '/introduction/long-term-support',
-  //           name: 'Long Term Support',
-  //           component: () => import(/* webpackChunkName: "docs" */ '@/views/Docs.vue'),
-  //         }
-  //       ]
-  //     },
-  //   ],
-  // },
 ];
 
 const router = createRouter({

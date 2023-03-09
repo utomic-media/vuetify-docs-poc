@@ -11,7 +11,7 @@
       >
 
         <template #prepend v-if="route.meta?.icon">
-          <v-icon :icon="route.meta?.icon" />
+          <v-icon :icon="getRouteIcon(route)" />
         </template>
 
         <v-list-item-title>
@@ -46,6 +46,10 @@ const getPath = (path: string) => {
     return path.slice(0, -6);
   }
   return path;
+}
+
+const getRouteIcon = (route: any) => {
+  return route.meta?.icon as string | '';
 }
 
 
