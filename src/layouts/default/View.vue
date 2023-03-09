@@ -66,6 +66,8 @@ const childRoutes = computed(() => {
   display: grid;
   grid-template-columns: 2fr 7.5fr 1.5fr;
   gap: 2rem;
+  @include max-width-large;
+  margin: auto;
 }
 
 

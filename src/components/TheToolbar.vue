@@ -92,7 +92,7 @@ const mainMenu = ref([
   align-items: center;
 
   :deep(.v-toolbar__content) {
-    @include max-width;
+    @include max-width-large;
   }
 }
 

@@ -7,6 +7,10 @@
   }
 }
 
+@mixin max-width-large {
+  max-width: 1200px;
+}
+
 .v-container {
   @include max-width;
 }
