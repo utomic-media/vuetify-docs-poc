@@ -36,8 +36,17 @@
         <TheMenuSidebar class="stick-to-menu" />
       </div>
       <router-view />
-      <div>
-        <h2 class="text-subtitle-1 font-weight-bold stick-to-menu">Table of Contents</h2>
+      <div class="toc-sidebar">
+        <h2 class="text-subtitle-1 font-weight-bold stick-to-menu">Content</h2>
+        <ul>
+          <li>Headline 01</li>
+          <li>Headline 02</li>
+            <ul>
+              <li>Some sub-stuff</li>
+              <li>Some sub-stuff</li>
+            </ul>
+          <li>Headline 03</li>
+        </ul>
       </div>
     </div>
   </v-main>
@@ -91,5 +100,15 @@ const childRoutes = computed(() => {
 .stick-to-menu {
   position: sticky;
   top: 136px; // height of header
+}
+
+.toc-sidebar {
+  ul {
+    list-style: none;
+
+    ul {
+      margin-left: 1rem;
+    }
+  }
 }
 </style>
