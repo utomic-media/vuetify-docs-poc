@@ -1,4 +1,12 @@
-# default
+# Vuetify Docs POC
+>
+> 💡 A draft for alternative vuetify docs with a completely restructured and redesigned layout & navigation.
+>
+
+This project contains a re-work of the vuetifyjs docs showing structural reworks. With the re-structured navigation things will be easier to find and the menu + toolbar end up less cluttered.
+
+## 📷 Screenshots
+
 
 ## Project setup
 
